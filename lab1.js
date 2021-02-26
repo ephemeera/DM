@@ -91,5 +91,5 @@ function extension(){
            }
        }
    }
-   document.getElementById("intersection").innerHTML = arr;  
+   document.getElementById("extension").innerHTML = arr;  
 }
