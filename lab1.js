@@ -149,4 +149,4 @@ function difference(){
        }
    }
   document.getElementById("difference").innerHTML = arr;   
-} 
+}
