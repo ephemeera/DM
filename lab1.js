@@ -2,6 +2,7 @@ function validation(){
     var arr1 = document.getElementByld("arr1").value;
     var arr2 = document.getElementByld("arr2").value;
     arr1.split(" ");
+    arr2.split(" ");
     for(var i = 0; i < arr1.length; i++){
         if(arr1[i].lenght > 4 || arr1[i].length < 4){
             alert("Неверно введен" + number(i + 1) + " элемент в 1 множестве");
@@ -23,4 +24,27 @@ function validation(){
         }
     }
     return true;
-}   
+} 
+
+fuction union(){
+   if (validation()) { 
+       var arr1 = document.getElementById("arr1").value;
+       var arr2 = document.getElementById("arr2").value;
+   }
+   arr1.split(" ");
+   arr2.split(" ");
+   var arr = []; 
+   arr = arr1 + arr2;
+   for(var i = 0; i < arr.length; i++){
+       for(var j = i + 1; j < arr.length; j++){
+           if(arr[i] == arr[j]{
+               var l = arr.length;
+               while(l != 0){
+                   arr[l] = arr[l + 1];
+                   l--;
+               }
+           }
+       }
+   }
+  document.getElementById("union").innerHTML = arr;   
+}  
