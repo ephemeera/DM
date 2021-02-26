@@ -77,7 +77,7 @@ function intersection(){
 }  
 
 function extension(){
-    if (validation()) { 
+   if (validation()) { 
        var arr1 = document.getElementById("arr1").value.replace(/\s+/g, " ").split(" "); 
        var arr2 = document.getElementById("arr2").value.replace(/\s+/g, " ").split(" "); 
    }
@@ -97,8 +97,56 @@ function extension(){
                flag = 0;
                continue;
            }else{
-                arr[z] = arr1[i];
+                if(z == 0 && arr[i][0] == ","){
+                    var arr3 = [];
+                    r = 0;
+                    for(var ij = 0; ij < 5; ij++){
+                        arr3[r] = arr1[i][ij];
+                        r++;
+                    }
+                    arr[z] = arr3;
+                    continue;
+                 }
+                 arr[z] = arr1[i];
            }
    }
    document.getElementById("extension").innerHTML = arr;  
 }
+
+function difference(){
+   if (validation()) { 
+       var arr1 = document.getElementById("arr1").value.replace(/\s+/g, " ").split(" "); 
+       var arr2 = document.getElementById("arr2").value.replace(/\s+/g, " ").split(" "); 
+   }
+   var arr = []; 
+   var k = 0;
+   for(var i = 0; i < arr1.length - k; i++){
+       for(var j = 0; j < arr2.length - k; j++){
+           if(arr1[i] === arr2[j]){
+               var l = j;
+               while (l != arr2.length - k){
+                   arr2[l] = arr2[l + 1];
+                   l++;
+               }
+               var h = i;
+               while (h != arr1.length - k){
+                   arr1[h] = arr1[h + 1];
+                   h++;
+               }
+               k++;
+           }
+       }
+   }
+   var j = 0;
+   for(var i = 0; i < arr1.length + arr2.length - 2 * k; i++){
+       if(!null){
+           if(i < arr1.length){
+               arr[i] = arr1[i];
+           }else if(i < arr2.length + arr1.length - 2 * k){
+               arr[i] = arr2[j];
+               j++;
+           }
+       }
+   }
+  document.getElementById("difference").innerHTML = arr;   
+} 
