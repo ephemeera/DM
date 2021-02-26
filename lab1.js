@@ -26,7 +26,7 @@ function validation(){
     return true;
 } 
 
-fuction union(){
+function union(){
    if (validation()) { 
        var arr1 = document.getElementById("arr1").value;
        var arr2 = document.getElementById("arr2").value;
