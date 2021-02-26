@@ -44,13 +44,15 @@ function union(){
        }
    }
    var j = 0;
-   for(var i = 0; i < (arr1.length) + (arr2.length); i++){
-       if(i < arr1.length){
-           arr[i] = arr1[i];
-       }else if(i < arr2.length){
-           arr[i] = arr2[j];
-           j++;
-        }
+   for(var i = 0; i < arr1.length + arr2.length - k; i++){
+       if(!null){
+           if(i < arr1.length){
+               arr[i] = arr1[i];
+           }else if(i < arr2.length + arr1.length - k){
+               arr[i] = arr2[j];
+               j++;
+           }
+       }
    }
    
   document.getElementById("union").innerHTML = arr;   
