@@ -82,14 +82,23 @@ function extension(){
        var arr2 = document.getElementById("arr2").value.replace(/\s+/g, " ").split(" "); 
    }
    var arr = [];
-   var z = 0;
+   var z = 0,flag;
    for(var i = 0; i < arr1.length; i++){
+       flag = 0;
+       z++;
        for(var j = 0; j < arr2.length; j++){
-           if(arr1[i] != arr2[j]){
-               arr[z] = arr1[i];
-               z++;
+           if(arr1[i] == arr2[j]){
+               flag = 1;
+               z--;
+               break;
            }
        }
+       if(flag == 1){
+               flag = 0;
+               continue;
+           }else{
+                arr[z] = arr1[i];
+           }
    }
    document.getElementById("extension").innerHTML = arr;  
 }
