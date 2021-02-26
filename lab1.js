@@ -82,7 +82,7 @@ function extension(){
        var arr2 = document.getElementById("arr2").value.replace(/\s+/g, " ").split(" "); 
    }
    var arr = [];
-   var z = 0,flag;
+   var z = 0,flag, flag2 = 0;
    for(var i = 0; i < arr1.length; i++){
        flag = 0;
        z++;
@@ -97,17 +97,17 @@ function extension(){
                flag = 0;
                continue;
            }else{
-                if(z == 0 && arr[i][0] == ","){
-                    var arr3 = [];
-                    r = 0;
-                    for(var ij = 0; ij < 5; ij++){
-                        arr3[r] = arr1[i][ij];
-                        r++;
-                    }
-                    arr[z] = arr3;
-                    continue;
+                if(flag2 == 0){
+                     r = 0;
+                     for(var ij = 1; ij < 5; ij++){
+                         arr1[i][r] = arr1[i][ij];
+                         r++;
+                      }
+                      arr[0] = arr1[i];
+                      flag2 = 1;
+                      continue;
                  }
-                 arr[z] = arr1[i];
+                 arr[z - 1] = arr1[i];
            }
    }
    document.getElementById("extension").innerHTML = arr;  
@@ -137,16 +137,52 @@ function difference(){
            }
        }
    }
-   var j = 0;
-   for(var i = 0; i < arr1.length + arr2.length - 2 * k; i++){
-       if(!null){
-           if(i < arr1.length){
-               arr[i] = arr1[i];
-           }else if(i < arr2.length + arr1.length - 2 * k){
-               arr[i] = arr2[j];
-               j++;
-           }
-       }
-   }
-  document.getElementById("difference").innerHTML = arr;   
+   var j = 0, ij = 0, flag = 0;
+   if(k == 0){
+       var arr = [];
+       var k = 0;
+       for(var i = 0; i < arr1.length; i++){
+           for(var j = 0; j < arr2.length - k; j++){
+               if(arr[i] === arr2[j]){
+                   var l = j;
+                   while(l != arr2.length - k){
+                       arr2[l] = arr2[l + 1];
+                       l++;
+                   }
+                   k++;
+                } 
+            }
+        }
+        var j = 0; 
+        for(var i = 0; i < arr1.length + arr2.length - k; i++){ 
+            if(!null){ 
+                if(i < arr1.length){ 
+                     arr[i] = arr1[i]; 
+                }else if(i < arr2.length + arr1.length - k){ 
+                    arr[i] = arr2[j]; 
+                    j++; 
+                } 
+            } 
+    } 
+    document.getElementById("difference").innerHTML = arr; 
+ } 
+ else{ 
+     for(var i = 0; i < arr1.length + arr2.length - 1; i++){ 
+         if(!null){ 
+             if(i < arr1.length){ 
+                 arr[ij] = arr1[i]; 
+                 j--; 
+             }else{ 
+                  if (flag == 0){ 
+                      flag = 1; 
+                      ij--; 
+             }  
+             arr[ij] = arr2[j]; 
+        } 
+        ij++; 
+        j++; 
+     } 
+ }  
+ document.getElementById("difference").innerHTML = arr; 
+ }  
 }
