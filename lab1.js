@@ -56,4 +56,22 @@ function union(){
    }
    
   document.getElementById("union").innerHTML = arr;   
+} 
+
+function intersection(){
+   if (validation()) { 
+       var arr1 = document.getElementById("arr1").value.replace(/\s+/g, " ").split(" "); 
+       var arr2 = document.getElementById("arr2").value.replace(/\s+/g, " ").split(" "); 
+   }
+   var arr = [];
+   var z = 0;
+   for(var i = 0; i < arr1.length; i++){
+       for(var j = 0; j < arr2.length - k; j++){
+           if(arr1[i] === arr2[j]){
+               arr[z] = arr1[i];
+               z++;
+           }
+       }
+   }
+   document.getElementById("intersection").innerHTML = arr;  
 }  
