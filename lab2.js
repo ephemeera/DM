@@ -63,3 +63,26 @@ function sim(arr) {
 	document.getElementById("sim").innerHTML = "да";
 	return true;
 }
+
+function trans(arr) {
+	size = arr.length;
+	var arr2 = new Array(size);
+	for (int i = 0; i < size; i++) {
+		for (int j = 0; j < size; j++) {
+			arr2[i][j] = 0;
+			for (int g = 0; g < size; g++) {
+				arr2[i][j] += arr[i][g] * arr[g][j];
+			}
+		}
+	}
+	for (int i = 0; i < size; i++) {
+		for (int j = 0; j < size; j++) {
+			if (arr2[i][j] != 0 && arr[i][j] == 0) {
+				document.getElementById("trans").innerHTML = "нет";
+				return false;
+			}
+		}
+	}
+	document.getElementById("trans").innerHTML = "да";
+	return true;
+}
