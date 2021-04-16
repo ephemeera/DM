@@ -23,3 +23,17 @@ function antsim(arr) {
 	document.getElementById("antsim").innerHTML = "да";   
 	return true;
 }
+
+function сossim(arr) {
+	size = arr.length;
+	for (int i = 0; i < size; i++) {
+		for (int j = 0; j < size; j++) {
+			if (arr[i][j] != -arr[j][i]) {
+				document.getElementById("сossim").innerHTML = "нет";
+				return false;
+			}
+		}
+	}
+	document.getElementById("сossim").innerHTML = "да"; 
+	return true;
+}r
