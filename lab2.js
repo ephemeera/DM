@@ -66,8 +66,9 @@ function sim(arr) {
 
 function trans(arr) {
 	size = arr.length;
-	var arr2 = new Array(size);
+	var arr2 = [];
 	for (int i = 0; i < size; i++) {
+		var arr2 = [];
 		for (int j = 0; j < size; j++) {
 			arr2[i][j] = 0;
 			for (int g = 0; g < size; g++) {
@@ -85,4 +86,33 @@ function trans(arr) {
 	}
 	document.getElementById("trans").innerHTML = "да";
 	return true;
+}
+
+function table() {
+	int input = document.getElementById("input").value.split(/\s/);
+	size = document.getElementById("size").value;
+	var arr = [];
+	for (int i = 0; i < size; i++) {
+		arr[i] = [];
+		for (int j = 0; j < size; j++) {
+			arr[i][j] = 0;
+		}
+	}
+	if (input.length % 2 == 0) {
+		for (int i = 0; i < input.length; i += 2) {
+			arr[input[i + 1] - 1][input[i] - 1] = 1;
+		}
+	}
+	else {
+		confirm("Лишние координаты!");
+	}
+	var output = new String();
+	for (int i = 0; i < size; i++) {
+		for (int j = 0; j < size; j++) {
+			output += arr[i][j];
+			output += " ";
+		}
+		output += "\n";
+	}
+	document.getElementById("output").value = output;
 }
