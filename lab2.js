@@ -38,4 +38,15 @@ function сossim(arr) {
 	return true;
 }
 
+function refl(arr) {
+	size = arr.length;
 
+	for (int i = 0; i < size; i++) {
+		if (arr[i][i] != 1) {
+			document.getElementById("refl").innerHTML = "нет";
+			return false;
+		}
+	}
+	document.getElementById("refl").innerHTML = "нет";
+	return true;
+}
