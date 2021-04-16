@@ -36,4 +36,6 @@ function сossim(arr) {
 	}
 	document.getElementById("сossim").innerHTML = "да"; 
 	return true;
-}r
+}
+
+
