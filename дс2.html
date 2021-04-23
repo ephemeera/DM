@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang = "ru">
+<head>
+	<title>Лаб 2</title>
+	<meta charset="utf-8">
+	<script src="lab2.js"></script>
+</head>
+<body>
+	<p>Размерность матрицы <input type="text" value="5" id="r"><br></p>
+	<textarea name="comment" cols="40" rows="7" placeholder="Введите координаты" id="input"></textarea>
+	<textarea name="comment" cols="40" rows="7" readonly id="output"></textarea><br>
+	<input type="submit" name="submit-btn" value="Проверить свойства" onclick="table()">
+	<p>Антирефлексивность: <span id="antrefl"></span></p>
+        <p>Кососимметричность: <span id="cossim"></span></p>
+        <p>Рефлексивность: <span id="refl"></span></p>
+        <p>Симметричность: <span id="sim"></span></p>
+	<p>Транзитивность: <span id="trans"></span></p>
+</body>
+</html>
