@@ -12,12 +12,12 @@ function cossim(arr) {
 	size = arr.length;
 	for (var i = 0; i < size; i++) {
 		for (var j = 0; j < size; j++) {
-			if (arr[i][j] == arr[j][i] && i != j) {
-				return "нет";
+			if (arr[i][j] == arr[j][i]) {
+				return "да";
 			}
 		}
 	}
-	return "да";
+	return "нет";
 }
 
 function refl(arr) {
