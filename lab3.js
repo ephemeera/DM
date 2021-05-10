@@ -1,45 +1,36 @@
 function table() {
-	var n = document.getElementById("n").value;
-	if (n < 0) {
-		alert("Число n не может быть отрицательным");
-	}
-    var matr = '<table>';
-    for (var i = 0; i < n; i++) {
-		matr += '<tr>';
-		for(var j = 0; j < n; j++) {
-			matr += '<td> <input type="number" class="cell" min="0" max="1"></td>';
+	var input = document.getElementById("input").value.split("\n");
+	r = document.getElementById("r").value;
+	var arr = new Array(r);
+	for (var i = 0; i < r; i++) {
+		arr[i] = new Array(r);
+		for (var j = 0; j < r; j++) {
+			arr[i][j] = 0;
 		}
-		matr += '</tr>';       
-    }
-    matr += '</table>';
-    document.getElementById('table').innerHTML = matr; 
-
+	}
+	for (var i = 0; i < r; i++) {
+		input[i] = input[i].split(" ");
+	}		
+	document.getElementById("check").innerHTML = check(input);
 }
 
-function check() {
-	var n = document.getElementById("n").value;
-	var mas = document.getElementsByClassName("cell");
-	var g = 0;
+function check(input) {
+	size = input.length;
 	var count = 0;
-	for (var i = 0; i < n; i++) {
+	for (var i = 0; i < size; i++) {
 		var k = 0;
-		for(var j = 0; j < n; j++) {
-			if(mas[g].value == 1) {
+		for(var j = 0; j < size; j++) {
+			if(input[i][j] == 1) {
 				k++;
 			}
-			g++;
 		}
 	if(k == 1) {
 		count++;
 	}
 	}
-	if(count == n) {
-		document.getElementById('check').innerHTML = 'Отношение является функцией';
+	if(count == size) {
+		return "да";
 	}else{
-		document.getElementById('check').innerHTML = 'Отношение не является функцией';
+		return "нет";
 	}
-}
-
-function run() {
-	check();
 }
