@@ -7,10 +7,9 @@
 </head>
 	
 <body>
-	Введите n <input type="number" id="n">
-	<input type="button" value="Ввод" onClick="table();">
-	<div id="table"></div><br>
-	<input type="button" value="Ок" onClick="run();"> 
-	<div id="check"></div>
+	<p>Введите размерность матрицы <input type="text" id="r"><br></p>
+	<textarea name="comment" cols="30" rows="7" placeholder="Введите матрицу" id="input"></textarea><br>
+	<input type="submit" name="submit-btn" value="Проверить свойство" onclick="table()">
+	<p>Отношение является функцией: <span id="check"></span></p>
 </body>
 </html>
